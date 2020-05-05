@@ -1,10 +1,8 @@
 import React from 'react';
-import Layout from '../../section/Layout';
+import Layout from '../../component/Layout';
 
 class Detail extends React.Component {
-
     render() {
-        
         return (
             <div className="detail">
                 <Layout />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import CheckItem from 'component/other/CheckItem';
+import CheckItem from 'component/other/Panel/CheckItem';
 
 class Panel extends React.Component {
   state = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from 'section/Layout';
+import Layout from 'component/Layout';
 import Products from 'component/product/Products';
 
 class Hot extends React.Component {

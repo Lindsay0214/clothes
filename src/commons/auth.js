@@ -22,11 +22,11 @@ const isTokenExpired = token => {
         const _info = decode(token);
         if (_info.exp < Date.now() / 1000) {
             return true;
-        } else return false;
-    } catch (error) {
-        return false;
-    }
-  };
+            } else return false;
+            } catch (error) {
+                return false;
+            }
+        };
 
 const getUser = () => {
     const jwToken = getToken();

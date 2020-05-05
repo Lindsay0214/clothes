@@ -1,13 +1,11 @@
 import React from 'react';
 import { formatPrice } from 'commons/helper';
-import Panel from 'component/other/Panel';
-import EditItem from 'component/other/EditItem';
+import Panel from 'component/other/Panel/Panel';
+import EditItem from 'component/other/Panel/EditItem';
 import axios from 'commons/axios';
 import { toast } from 'react-toastify';
 
 class Product extends React.Component {
-
- 
     toEdit = () => {
         Panel.open({
             component: EditItem,

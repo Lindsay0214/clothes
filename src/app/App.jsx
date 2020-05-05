@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from 'pages/Home';
-import Login from 'pages/Login';
-import Register from 'pages/Register';
-import Cart from 'component/other/cart/Cart';
+import Login from 'pages/login/Login';
+import Register from 'pages/register/Register';
+import Cart from 'pages/Cart';
 
 import New from 'pages/category/New';
 import Hot from 'pages/category/Hot';
@@ -18,7 +18,7 @@ import Acc from 'pages/category/Acc';
 
 import Detail from 'pages/detail/Detail';
 import Sidebar from 'component/sidebar/Sidebar';
-import NotFound from 'pages/NotFound';
+import NotFound from 'pages/notfound/NotFound';
 import 'commons/auth';
 
 

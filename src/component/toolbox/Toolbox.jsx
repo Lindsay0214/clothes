@@ -20,7 +20,6 @@ class Toolbox extends React.Component {
             </div>
         );
     }
-
 }
 
 // 首頁分類滑動橫幅

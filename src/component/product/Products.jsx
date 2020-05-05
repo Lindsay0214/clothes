@@ -2,10 +2,9 @@ import React from 'react';
 import axios from 'commons/axios';
 import Product from 'component/product/Product';
 import Search from 'section/header/Search';
-import Panel from 'component/other/Panel';
-import CheckItem from 'component/other/CheckItem';
+import Panel from 'component/other/Panel/Panel';
+import CheckItem from 'component/other/Panel/CheckItem';
 import { withRouter } from 'react-router-dom';
-
 
 class Products extends React.Component {
     state = {
@@ -24,8 +23,6 @@ class Products extends React.Component {
         this.updateCartNum();
     }                   // API請求數據 使用axios庫和元件
 
-
-    
     // 搜尋邏輯
     search = text => {
         console.log(text);
@@ -39,8 +36,6 @@ class Products extends React.Component {
             products: _products
         })
     };
-
-
 
     updateCartNum = async () => {
         const cartNum = await this.initCartNum()
@@ -57,7 +52,6 @@ class Products extends React.Component {
         .reduce((a,value) => a + value, 0)
         return cartNum
     }
-    
 
     toAdd = () => {
         Panel.open({
@@ -104,11 +98,9 @@ class Products extends React.Component {
         });
       };
 
-
       goCart = () => {
           this.props.history.push('/cart');
       }
-
 
     render() {
         const { product } = this.state;
@@ -129,10 +121,9 @@ class Products extends React.Component {
                             </div>
                             )
                         }
-                        )}
+                    )}
                 </div>
                 <button className="button is-primary add-btn" onClick={this.toAdd}><i className="fas fa-shopping-cart"></i></button>
-
             </div>
         )
     }
