@@ -7,7 +7,8 @@ import { formatPrice } from 'commons/helper';
 const Cart = () => {
     const [carts, setCarts] = useState([]);
     useEffect(() => {
-        axios.get('/carts').then(res => setCarts(res .data));
+        const user = global.auth.getUser() || {};    //依userid給購物車數據
+        axios.get(`/carts?userId=${user.eamil}`).then(res => setCarts(res .data));
     }, []);
 
     const totalPrice = () => {

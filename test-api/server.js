@@ -25,7 +25,7 @@ const isAuthenticated = ({email, password}) => {
   );
 };
 
-// ?
+// 判斷email是否存在
 const isExist = email => {
   return getUsersDb().users.findIndex(user => user.email === email) !== -1;
 };
@@ -65,7 +65,7 @@ server.post('/auth/register', (req, res) => {
   const { email, password, nickname, type } = req.body;
 
   // 註冊過
-  if (isExist({email, password})) { 
+  if (isExist(email)) { 
     const status = 401;
     const message = 'Already exist';
     return res.status(status).json({ status, message });
@@ -105,39 +105,39 @@ server.post('/auth/register', (req, res) => {
 
 
 
-    // server.use('/carts', (req, res, next) => {
-    //   if (
-    //     req.headers.authorization === undefined ||
-    //     req.headers.authorization.split(' ')[0] !== 'Bearer'
-    //   ) {
-    //     const status = 401;
-    //     const message = 'Error in authorization format';
-    //     res.status(status).json({ status, message });
-    //     return;
-    //   }
-    //   try {
-    //     const verifyTokenResult = verifyToken(
-    //       req.headers.authorization.split(' ')[1]
-    //     );
-    //     if (verifyTokenResult instanceof Error) {
-    //       const status = 401;
-    //       const message = 'Access token not provided';
-    //       res.status(status).json({ status, message });
-    //       return;
-    //     }
-    //     next();
-    //   } catch (err) {
-    //     const status = 401;
-    //     const message = 'Error token is revoked';
-    //     res.status(status).json({ status, message });
-    //   }
-    // });
-    // // Verify the token
-    // const verifyToken = token => {
-    //   return jwt.verify(token, SECRET, (err, decode) =>
-    //     decode !== undefined ? decode : err
-    //   );
-    // };
+    server.use('/carts', (req, res, next) => {
+      if (
+        req.headers.authorization === undefined ||
+        req.headers.authorization.split(' ')[0] !== 'Bearer'
+      ) {
+        const status = 401;
+        const message = 'Error in authorization format';
+        res.status(status).json({ status, message });
+        return;
+      }
+      try {
+        const verifyTokenResult = verifyToken(
+          req.headers.authorization.split(' ')[1]
+        );
+        if (verifyTokenResult instanceof Error) {
+          const status = 401;
+          const message = 'Access token not provided';
+          res.status(status).json({ status, message });
+          return;
+        }
+        next();
+      } catch (err) {
+        const status = 401;
+        const message = 'Error token is revoked';
+        res.status(status).json({ status, message });
+      }
+    });
+    // Verify the token
+    const verifyToken = token => {
+      return jwt.verify(token, SECRET, (err, decode) =>
+        decode !== undefined ? decode : err
+      );
+    };
 
 
     

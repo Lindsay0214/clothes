@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'commons/axios';
 import { useForm } from 'react-hook-form';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 
 export default function Register(props) {
@@ -14,16 +14,16 @@ export default function Register(props) {
         // 註冊邏輯
         try{
             const { nickname, email, password } = data
-            const res = await axios.post('/auth/register', { nickname, email, password});
+            const res = await axios.post('/auth/register', { nickname, email, password, type: 0 });
             const jwToken = res.data;
             console.log(jwToken);
             global.auth.setToken(jwToken);
-            // toast.success('Register success');
+            toast.success('Register success');
             props.history.push('/');   //跳轉到首頁
         } catch (error) {
             console.log(error.response.data);
             const message = error.response.data.message;
-            // toast.error(message);
+            toast.error(message);
         }
     }
 

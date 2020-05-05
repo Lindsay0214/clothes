@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { formatPrice } from 'commons/helper';
 import Panel from 'component/other/Panel/Panel';
 import EditItem from 'component/other/Panel/EditItem';
@@ -20,7 +21,14 @@ class Product extends React.Component {
     };
 
     addCart = async () => {
+        if (!global.auth.isLogin()) {              //根據狀態顯示 (登陸判斷)
+            this.props.history.push('/login');
+            toast.info('Please Login First');
+            return;
+          }
+
         try {
+            const user = global.auth.getUser() || {};
             const { id, name, image, price } = this.props.product;
             const res = await axios.get(`/carts?productId=${id}`);
             const carts = res.data;
@@ -34,7 +42,8 @@ class Product extends React.Component {
                 name,
                 image,
                 price,
-                mount: 1
+                mount: 1,
+                userId: user.email
             };
     
             await axios.post('/carts', cart);
@@ -80,4 +89,4 @@ class Product extends React.Component {
     }
 }
 
-export default Product;
+export default withRouter(Product);

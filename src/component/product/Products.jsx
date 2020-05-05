@@ -5,6 +5,7 @@ import Search from 'section/header/Search';
 import Panel from 'component/other/Panel/Panel';
 import CheckItem from 'component/other/Panel/CheckItem';
 import { withRouter } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 class Products extends React.Component {
     state = {
@@ -44,14 +45,21 @@ class Products extends React.Component {
         });
     };
 
+    //初始化購物車數量
     initCartNum = async () => {
-        const res = await axios.get('/carts')
-        const carts = res.data || []
+        const user = global.auth.getUser() || {};
+        const res = await axios.get('/carts', {
+            params: {
+                userId: user.email
+            }
+        });
+
+        const carts = res.data || [];
         const cartNum = carts
         .map(cart => cart.mount)
-        .reduce((a,value) => a + value, 0)
-        return cartNum
-    }
+        .reduce((a,value) => a + value, 0);
+        return cartNum;
+    };
 
     toAdd = () => {
         Panel.open({
@@ -99,6 +107,11 @@ class Products extends React.Component {
       };
 
       goCart = () => {
+          if (!global.auth.isLogin()) {                        //根據狀態顯示 (登陸判斷)
+              this.props.history.push('/login');
+              toast.info('Please Login First');
+              return;
+          }
           this.props.history.push('/cart');
       }
 
