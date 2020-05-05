@@ -1,0 +1,31 @@
+.detail{
+    background-color: rgba(196, 161, 128, 0.219);
+    width: 100%;
+    height: 100%;
+}
+
+.product-detail{
+    width: 300px;
+    padding: 2rem;
+    
+}
+
+.product-image{
+    margin: auto;
+}
+
+.product-info h1{
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 10px;
+}
+
+.product-detail-color{
+    padding-left: 10px;
+}
+
+.product-detail-size{
+    padding-left: 10px;
+}
+
+

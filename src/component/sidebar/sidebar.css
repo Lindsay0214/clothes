@@ -1,0 +1,32 @@
+.sidebar-text {
+    height: 100vh;
+    background-color: rgb(228, 215, 209);
+    column-width: 90px;
+    column-gap: 10px;
+    padding-top: 40px;
+    padding-left: 10px;
+  }
+  
+  .sidebar-text-item {
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+    background-color: rgb(177, 137, 112);
+    margin: 0 0 1em 0.5em;
+    padding-left: 15px;
+    justify-content: center;
+    line-height: 90px;
+  }
+
+  .sidebar-text-item a{
+      color: whitesmoke;
+      text-decoration: none;
+  }
+
+  .sidebar-text-item a:hover {
+      opacity: 0.5;
+  }
+
+
+
+

@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+/* html,body{
+    height: 100%;
+} */
+
+.main{
+    position: relative;
+}
+.footer{
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    background-color: rgb(195, 174, 155);
+    width: 100%;
+    height: 85px;
+    padding: 1rem 1.3rem;
+}
+
+.footer-icon a{
+    font-size: 35px;
+    padding: 0 25px;
+}
+
+.footer-icon-topic {
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}

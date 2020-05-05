@@ -1,0 +1,31 @@
+  .header{
+      width: 100%;
+      background-color: rgb(195, 174, 155);
+      padding-bottom: 15px;
+  }
+  
+  .header .grid-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 0 20px;
+  }
+
+  .logo{
+    mix-blend-mode: multiply;
+    opacity: 0.9;
+  }
+
+  /* //       .nickname {
+    //         padding-left: 0.4rem;
+    //         font-size: 13px;
+    //         cursor: pointer;
+    //         &:hover {
+    //           color: #ddd;
+    //         }
+    //         i {
+    //           margin-right: 4px;
+    //         }
+    //       }
+    //     }
+    //   } */
