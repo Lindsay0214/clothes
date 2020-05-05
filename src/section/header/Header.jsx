@@ -1,8 +1,24 @@
 import React from 'react';
 import Logo from './Logo';
+import { Link } from 'react-router-dom';
+import UserProfile from 'component/UserProfile';
+import Search from './Search';
+import Panel from 'component/other/Panel';
 
 
-const Header = props => (
+const Header = props => {
+
+    const toProfile = () => {
+        Panel.open({
+            component: UserProfile,
+            callback: data => {
+                console.log(data);
+            }
+        });
+    };
+
+    return (
+
     <div className="header">
         <div className="grid">
             <div className="grid-top">
@@ -22,8 +38,8 @@ const Header = props => (
                     </span>
                 ) : (
                     <React.Fragment>
-                        <a href="/login">登入|</a>
-                        <a href="/register">註冊</a>
+                        <Link to="/login">登入|</Link>
+                        <Link to="/register">註冊</Link>
                     </React.Fragment>
                 )}
                 </div>
@@ -32,7 +48,7 @@ const Header = props => (
     </div>
 );
 
-
+                };
 export default Header;
 
           
