@@ -54,21 +54,44 @@ class Product extends React.Component {
         }
     };
 
+    renderMangerBtn = () => {
+        const user = global.auth.getUser() || {}
+        if (user.type === 1) {
+            return (
+                <div className="p-head has-text-right" onClick={this.toEdit}>
+                    <span className="icon edit-btn">
+                        <i className="fas fa-sliders-h"></i>
+                    </span>
+                </div>
+            );
+        }
+    };                 //未登入時不顯示edititem圖示
+
+
+    // renderUserBtn = () => {
+    //     const user = global.auth.getUser() || {}
+    //     if (user.type === 0) {
+    //         return (
+    //             <button className="add-cart" disabled={status === 'unavailable'} onClick={this.addCart}>
+    //                 <i className="fas fa-shopping-cart"></i>
+    //                 <i className="fas fa-exclamation"></i>
+    //             </button>
+    //         );
+    //     }
+    // };      
+
+
     render() {
         const { name, image, price, status } = this.props.product;
         const _pClass = {
             available: 'product',
             unavailable: 'product out-stock'
-            }
+            };    
             
-        return(
+        return( 
             <div className={_pClass[status]}>
-                <div className="p-content">
-                    <div className="p-head has-text-right" onClick={this.toEdit}>
-                    <span>
-                        <i className="fas fa-sliders-h"></i>
-                    </span>
-                    </div>  
+                <div className="p-content">     
+                    {this.renderMangerBtn()}                    
                     <div className="img-wrapper">
                         <div className="out-stock-text">完售</div>
                         <figure className="image is-4by3">
@@ -79,6 +102,7 @@ class Product extends React.Component {
                 </div>
                 <div className="p-footer">
                     <p className="price">{formatPrice(price)}</p>
+                    {/* {this.renderUserBtn()} */}
                     <button className="add-cart" disabled={status === 'unavailable'} onClick={this.addCart}>
                         <i className="fas fa-shopping-cart"></i>
                         <i className="fas fa-exclamation"></i>

@@ -16,14 +16,15 @@
     .columns{
     padding-top: 1.2rem;
     padding-bottom: 10rem;
+    padding-right: 1rem;
     column-width: 150px;
     column-gap: 1px;
     }
     .add-btn {
       position: fixed;
       left: 0;
-      top: 30rem;
-      border-radius: 50px;
+      bottom: 7rem;
+      border-radius: 999em;
       z-index: 99;
     }
   }

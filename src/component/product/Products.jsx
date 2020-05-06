@@ -3,7 +3,7 @@ import axios from 'commons/axios';
 import Product from 'component/product/Product';
 import Search from 'section/header/Search';
 import Panel from 'component/other/Panel/Panel';
-import CheckItem from 'component/other/Panel/CheckItem';
+import AddItem from 'component/other/Panel/AddItem';
 import { withRouter } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -63,7 +63,7 @@ class Products extends React.Component {
 
     toAdd = () => {
         Panel.open({
-            component: CheckItem,
+            component: AddItem,
             callback: data => {
                 if (data) {
                     this.add(data);
@@ -107,13 +107,22 @@ class Products extends React.Component {
       };
 
       goCart = () => {
-          if (!global.auth.isLogin()) {                        //根據狀態顯示 (登陸判斷)
+          if (!global.auth.isLogin()) {                        //根據狀態顯示 (登入判斷)
               this.props.history.push('/login');
               toast.info('Please Login First');
               return;
           }
           this.props.history.push('/cart');
       }
+
+      renderMangerAddBtn = () => {
+        const user = global.auth.getUser() || {}
+        if (user.type === 1) {
+            return (
+                <button className="button is-primary add-btn" onClick={this.toAdd}>＋</button>
+            );
+        }
+    };                 //未登入時不顯示additem圖示
 
     render() {
         const { product } = this.state;
@@ -136,7 +145,7 @@ class Products extends React.Component {
                         }
                     )}
                 </div>
-                <button className="button is-primary add-btn" onClick={this.toAdd}><i className="fas fa-shopping-cart"></i></button>
+                {this.renderMangerAddBtn()}
             </div>
         )
     }

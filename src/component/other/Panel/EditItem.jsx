@@ -52,7 +52,7 @@ class EditItem extends React.Component {
     render() {
         return (
             <div className="edit-item">
-                <p className="title has-text-centered">Items</p>
+                <p className="title has-text-centered">Edit Items</p>
                 <form onSubmit={this.submit}>
                     <div className="field">
                         <div className="control">

@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'commons/axios';
 import { toast } from 'react-toastify';
 
-class CheckItem extends React.Component {
+class AddItem extends React.Component {
 
     state = {
         name: '',
@@ -31,8 +31,8 @@ class CheckItem extends React.Component {
 
     render() {
         return (
-            <div className="check-item">
-                <p className="title has-text-centered">Items</p>
+            <div className="add-item">
+                <p className="title has-text-centered">Add Items</p>
                 <form onSubmit={this.submit}>
                     <div className="field">
                         <div className="control">
@@ -81,6 +81,6 @@ class CheckItem extends React.Component {
     }
 }
 
-export default CheckItem;
+export default AddItem;
 
 
