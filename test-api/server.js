@@ -16,7 +16,6 @@ const getUsersDb = () => {
   );
 };
 
-
 const isAuthenticated = ({email, password}) => {
   return (
     getUsersDb().users.findIndex(
@@ -41,7 +40,7 @@ server.post('/auth/login', (req, res) => {
   const { email, password } = req.body;
   
   // 透過設定函數 isAuthenticated 方法來校驗 email, password 是否匹配
-  // 使用node-jwt庫封裝 payload從getUsersDb獲取傳遞
+  // 使用node-jwt庫封裝payload從getUsersDb獲取傳遞
 
   if (isAuthenticated({email, password})) { 
     const user = getUsersDb().users.find(

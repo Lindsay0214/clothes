@@ -17,17 +17,14 @@ export default function Login(props) {
             const jwToken = res.data;
             console.log(jwToken);
             global.auth.setToken(jwToken);
-            // toast.success('Login success')
+            toast.success('Login success')
             props.history.push('/');   //跳轉到首頁
         } catch (error) {
             console.log(error.response.data);
             const message = error.response.data.message;
-            // toast.error.(message);
+            toast.error(message);
         }
-
-    }
-    console.log(errors); //無正確輸入值
-
+    };
 
     return(
         <div className="login-wrapper">
