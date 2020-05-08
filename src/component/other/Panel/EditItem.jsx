@@ -13,7 +13,7 @@ class EditItem extends React.Component {
     };
 
     componentDidMount() {
-        const { id, name, image, tags, price, status } = this.props.product;
+        const { id, name, image, price, status } = this.props.product;
         this.setState({
           id,
           name,

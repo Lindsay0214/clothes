@@ -2,6 +2,7 @@
     background-color: rgba(196, 161, 128, 0.219);
     width: 100vw;
     height: 100vh;
+    font-family: monospace;
 }
 
 .product-detail{
@@ -22,4 +23,18 @@
     padding-left: 10px;
 }
 
+.product-detail-size button{
+    width: 35px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    background-color: rgb(223, 206, 184);
+}
+
+.product-info .addcart{
+    padding: 5px;
+    margin: 10px;
+    width: 100px;
+    border-radius:10px;
+    background-color: rgb(235, 199, 152);
+}
 
