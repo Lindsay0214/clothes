@@ -31,6 +31,7 @@ export default function Register(props) {
 
         return (
         <div className="register-wrapper">
+            <a href="/"><p className="back-button footer-icon-topic">返回首頁</p></a>
             <form className="box register-box" onSubmit={handleSubmit(onSubmit)}>
                 <div class="field">
                     <label className="label">用戶名稱</label>

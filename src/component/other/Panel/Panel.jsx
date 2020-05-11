@@ -51,14 +51,14 @@ class Panel extends React.Component {
         ></div>
         <div className="panel">
           <div className="head">
-            <span
+            {/* <span
               className="close"
               onClick={() => {
                 this.close();
               }}
             >
               ×
-            </span>
+            </span> */}
             {this.state.component}
           </div>
         </div>

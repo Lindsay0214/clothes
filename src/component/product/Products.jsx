@@ -113,6 +113,7 @@ class Products extends React.Component {
               return;
           }
           this.props.history.push('/cart');
+        this.props.history.push('/cart');
       }
 
       renderMangerAddBtn = () => {

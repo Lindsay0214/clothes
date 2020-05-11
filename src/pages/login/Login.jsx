@@ -3,6 +3,7 @@ import axios from 'commons/axios';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
+
 export default function Login(props) {
 
     const { register, handleSubmit, errors } = useForm();
@@ -28,6 +29,7 @@ export default function Login(props) {
 
     return(
         <div className="login-wrapper">
+            <a href="/"><p className="back-button footer-icon-topic">返回首頁</p></a>
             <form className="box login-box" onSubmit={handleSubmit(onSubmit)}>
                 <div class="field">
                     <label className="label">信箱</label>

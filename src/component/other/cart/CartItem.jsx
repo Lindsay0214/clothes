@@ -7,7 +7,7 @@ const CartItem = props => {
     return (
         <div className="columns is-vcentered">
             <div className="column is-narrow">
-                <span className="close">X</span>
+                <span className="close">x</span>
                 
             </div>
             <div className="column is-narrow">

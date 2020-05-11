@@ -10,3 +10,9 @@
       width: 300px;
       padding: 1.5rem 1.5rem 2rem 1.5rem;
 }
+
+.back-button{
+    position: fixed;
+    top: 10px;
+    left: 20px;
+}

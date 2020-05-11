@@ -38,3 +38,11 @@
     background-color: rgb(235, 199, 152);
 }
 
+.detail .cart-btn{
+    position: fixed;
+    left: 0;
+    bottom: 20rem;
+    border-radius: 999em;
+    z-index: 99;
+}
+
