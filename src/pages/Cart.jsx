@@ -24,7 +24,7 @@ const Cart = () => {
           .map(cart => cart.mount * parseInt(cart.price))
           .reduce((a, value) => a + value, 0);
         return formatPrice(totalPrice);
-      }, [carts]);
+      }, [carts]);                                             
 
     const updateCart = cart => {
         const newCarts = [...carts];

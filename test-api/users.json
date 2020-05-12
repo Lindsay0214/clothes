@@ -1,1 +1,1 @@
-{"users":[{"id":1,"nickname":"Lindsay","email":"liny@153.com","password":"0214","type":1},{"id":2,"email":"liny@153.com","password":"11111","nickname":"unicorn"}]}
+{"users":[{"id":1,"nickname":"Lindsay","email":"liny@153.com","password":"0214","type":1},{"id":2,"email":"liny@153.com","password":"11111","nickname":"unicorn"},{"id":3,"email":"liny@153.com","password":"111","nickname":"unicorn","type":0}]}

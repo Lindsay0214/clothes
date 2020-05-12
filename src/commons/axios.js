@@ -25,4 +25,6 @@ const axios = baseURL => {
     return instance;
 }
 
+export { axios };
+
 export default axios();
