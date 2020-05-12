@@ -13,22 +13,22 @@ export default class SimpleSlider extends Component {
       <div className="simple-slider" style={{ backgroundColor:"rgba(196, 161, 128, 0.219)", paddingTop:"1rem" }}>
         <Slider {...settings}>
           <div className="simple-slider-images">
-          <img src="https://picsum.photos/1000/750"></img>
+          <img alt="random_pic" src="https://picsum.photos/1000/750"></img>
           </div>
           <div className="simple-slider-images">
-          <img src="https://picsum.photos/1000/750"></img>
+          <img alt="random_pic" src="https://picsum.photos/1000/750"></img>
           </div>
           <div className="simple-slider-images">
-          <img src="https://picsum.photos/1000/750"></img>
+          <img alt="random_pic" src="https://picsum.photos/1000/750"></img>
           </div>
           <div className="simple-slider-images">
-          <img src="https://picsum.photos/1000/750"></img>
+          <img alt="random_pic" src="https://picsum.photos/1000/750"></img>
           </div>
           <div className="simple-slider-images">
-          <img src="https://picsum.photos/1000/750"></img>
+          <img alt="random_pic" src="https://picsum.photos/1000/750"></img>
           </div>
           <div className="simple-slider-images">
-          <img src="https://picsum.photos/1000/750"></img>
+          <img alt="random_pic" src="https://picsum.photos/1000/750"></img>
           </div>
         </Slider>
       </div>

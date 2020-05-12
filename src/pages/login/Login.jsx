@@ -29,9 +29,9 @@ export default function Login(props) {
 
     return(
         <div className="login-wrapper">
-            <a href="/"><p className="back-button footer-icon-topic">返回首頁</p></a>
+            <a href="/"><i className="fas fa-chevron-left back-button"></i></a>
             <form className="box login-box" onSubmit={handleSubmit(onSubmit)}>
-                <div class="field">
+                <div className="field">
                     <label className="label">信箱</label>
                     <div className="control">
                         <input
@@ -54,7 +54,7 @@ export default function Login(props) {
                         }
                     </div>
                 </div>
-            <div class="field">
+            <div className="field">
                 <label className="label">密碼</label>
                 <div className="control">
                     <input

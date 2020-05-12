@@ -84,4 +84,15 @@
     opacity: 0.1;
   }
 
+  .cart-check{
+    font-size: 18px;
+    background: rgba(214, 188, 130, 0.795);
+    border-radius: 10px;
+    padding: 5px;
+    position: fixed;
+    right: 20px;
+    margin-top: 8px;
+    width: 100px;
+    }
+
 

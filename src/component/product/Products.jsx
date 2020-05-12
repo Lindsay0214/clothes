@@ -21,21 +21,20 @@ class Products extends React.Component {
                 sourceProducts: response.data
             });
         });
-        this.updateCartNum();
+        this.updateCartNum();  //讓一開始畫面就有cartnum的值
     }                   // API請求數據 使用axios庫和元件
 
     // 搜尋邏輯
     search = text => {
-        console.log(text);
         let _products = [...this.state.sourceProducts]  // 解構獲取新數組 拿到product
         _products = _products.filter(p => {
             const matchArray = p.name.match(new RegExp(text, 'gi'))   // name: Abcd  text: ab ===> ['Ab']
             return !!matchArray
-        })
+        });
 
         this.setState({
             products: _products
-        })
+        });
     };
 
     updateCartNum = async () => {
@@ -126,7 +125,7 @@ class Products extends React.Component {
     };                 //未登入時不顯示additem圖示
 
     render() {
-        const { product } = this.state;
+        // const { product } = this.state;
         return (
             <div className="products">
                 <div className="search-bar">

@@ -30,7 +30,7 @@ class Product extends React.Component {
         try {
             const user = global.auth.getUser() || {};
             const { id, name, image, price } = this.props.product;
-            const res = await axios.get(`/carts?productId=${id}`);
+            const res = await axios.get(`/carts?productId=${id}`);      //相同商品不重複計算
             const carts = res.data;
             if (carts && carts.length > 0) {
                 const cart = carts[0]
@@ -67,20 +67,6 @@ class Product extends React.Component {
         }
     };                 //未登入時不顯示edititem圖示
 
-
-    // renderUserBtn = () => {
-    //     const user = global.auth.getUser() || {}
-    //     if (user.type === 0) {
-    //         return (
-    //             <button className="add-cart" disabled={status === 'unavailable'} onClick={this.addCart}>
-    //                 <i className="fas fa-shopping-cart"></i>
-    //                 <i className="fas fa-exclamation"></i>
-    //             </button>
-    //         );
-    //     }
-    // };      
-
-
     render() {
         const { name, image, price, status } = this.props.product;
         const _pClass = {
@@ -102,7 +88,6 @@ class Product extends React.Component {
                 </div>
                 <div className="p-footer">
                     <p className="price">{formatPrice(price)}</p>
-                    {/* {this.renderUserBtn()} */}
                     <button className="add-cart" disabled={status === 'unavailable'} onClick={this.addCart}>
                         <i className="fas fa-shopping-cart"></i>
                         <i className="fas fa-exclamation"></i>
