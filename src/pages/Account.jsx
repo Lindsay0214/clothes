@@ -1,15 +1,13 @@
 import React from 'react';
-import Login from './login/Login';
+import Layout from 'component/Layout';
 
 class Account extends React.Component {
     render() {
         return (
             <div className="account">
-                <button>
-                    <a href="Login"><Login /></a>
-                </button>
-                <button><a href="Register">Register</a></button>
-                <span className="nickname">{this.props.nickname}</span>
+                <Layout>
+
+                </Layout>
             </div>
         )
     }

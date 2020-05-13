@@ -12,13 +12,6 @@ const Cart = () => {
         axios.get(`/carts?userId=${user.eamil}`).then(res => setCarts(res.data));
     }, []);
 
-    // const totalPrice = () => {
-    //     const totalPrice = carts
-    //         .map(cart => cart.mount * parseInt(cart.price))
-    //         .reduce((a,value) => a + value, 0);
-    //     return formatPrice(totalPrice);
-    // };
-
     const totalPrice = useMemo(() => {
         const totalPrice = carts
           .map(cart => cart.mount * parseInt(cart.price))
@@ -53,7 +46,6 @@ const Cart = () => {
                                 />
                             ))}
                 </div>
-                {carts.length === 0 ? <a className="no-cart" href="/sidebar">Go Shopping</a> : ''}
 
                 <div className="cart-total">
                     Total:

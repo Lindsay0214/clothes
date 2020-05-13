@@ -29,7 +29,7 @@ class Product extends React.Component {
 
         try {
             const user = global.auth.getUser() || {};
-            const { id, name, image, price } = this.props.product;
+            const { id, name, image, price, size, color } = this.props.product;
             const res = await axios.get(`/carts?productId=${id}`);      //相同商品不重複計算
             const carts = res.data;
             if (carts && carts.length > 0) {
@@ -42,6 +42,8 @@ class Product extends React.Component {
                 name,
                 image,
                 price,
+                size,
+                color,
                 mount: 1,
                 userId: user.email
             };
@@ -68,7 +70,7 @@ class Product extends React.Component {
     };                 //未登入時不顯示edititem圖示
 
     render() {
-        const { name, image, price, status } = this.props.product;
+        const { name, image, price, status, size, color } = this.props.product;
         const _pClass = {
             available: 'product',
             unavailable: 'product out-stock'

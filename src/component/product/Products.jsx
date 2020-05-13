@@ -112,7 +112,6 @@ class Products extends React.Component {
               return;
           }
           this.props.history.push('/cart');
-        this.props.history.push('/cart');
       }
 
       renderMangerAddBtn = () => {
@@ -125,7 +124,7 @@ class Products extends React.Component {
     };                 //未登入時不顯示additem圖示
 
     render() {
-        // const { product } = this.state;
+        const { product } = this.state;
         return (
             <div className="products">
                 <div className="search-bar">
@@ -139,7 +138,12 @@ class Products extends React.Component {
                     { this.state.products.map(p => {
                         return(
                             <div className="column is-3" key={p.id} >
-                                <Product product={p} update={this.update} delete={this.delete} />
+                                <Product 
+                                    product={p}
+                                    update={this.update}
+                                    delete={this.delete}
+                                    updateCartNum={this.updateCartNum}
+                                    />
                             </div>
                             )
                         }

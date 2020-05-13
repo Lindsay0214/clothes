@@ -14,7 +14,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import './pages/login/login.css';
 import './pages/register/register.css';
 import './component/product/product.scss';
-import './pages/notfound/notfound.css';
 import './component/other/Panel/panel.scss';
 import './component/other/Panel/item.css';
 

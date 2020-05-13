@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'commons/axios';
 import { render } from '@testing-library/react';
 
-
 class Category extends React.Component {
     state = {
         category: [],
@@ -34,6 +33,5 @@ render() {
         </div>
     )
 }
-
 
 export default Category; 
