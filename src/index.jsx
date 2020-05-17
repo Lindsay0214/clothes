@@ -16,12 +16,18 @@ import './pages/register/register.css';
 import './component/product/product.scss';
 import './component/other/Panel/panel.scss';
 import './component/other/Panel/item.css';
+import cartReducer from './component/reducers/cartReducer';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
+
+const store = createStore(cartReducer);
 
 ReactDOM.render(
-    <div>
+    <Provider store={store}>
         <ToastContainer />
         <App />
-    </div>,
+    </Provider>,
     document.getElementById('root')
-    );
+);
+    
