@@ -5,7 +5,7 @@ import SimpleSlider from 'component/other/SimpleSlider';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Layout from '../component/Layout';
-import Search from 'section/header/Search';
+// import Search from 'section/header/Search';
 
 class Home extends React.Component {
     render() {
@@ -13,7 +13,6 @@ class Home extends React.Component {
             <Layout>
                 <Toolbox />
                 <SimpleSlider />
-                <Search />
                 <Products />
             </Layout>
         );

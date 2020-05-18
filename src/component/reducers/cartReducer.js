@@ -3,8 +3,8 @@ import Item2 from '../../assets/images/item_1.jpeg'
 import Item3 from '../../assets/images/item_2.jpeg'
 import Item4 from '../../assets/images/item_3.jpeg'
 import Item5 from '../../assets/images/item_4.jpeg';
-import Item6 from '../../assets/images/item_.jpeg'
-import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING } from '../actions/action-types/cart-actions'
+import Item6 from '../../assets/images/item_.jpeg';
+import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING } from '../actions/action-types/cart-actions';
 
 
 const initState = {
@@ -111,7 +111,6 @@ const cartReducer= (state = initState,action)=>{
   else{
     return state
     }
-    
 }
 
 export default cartReducer;

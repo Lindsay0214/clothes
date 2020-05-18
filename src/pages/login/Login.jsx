@@ -21,7 +21,7 @@ export default function Login(props) {
             toast.success('Login success')
             props.history.push('/');   //跳轉到首頁
         } catch (error) {
-            console.log(error.response.data);
+            // console.log(error.response.data);
             const message = error.response.data.message;
             toast.error(message);
         }

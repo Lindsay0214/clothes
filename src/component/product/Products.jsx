@@ -163,52 +163,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addToCart } from '../actions/cartAction';
-import { withRouter } from 'react-router-dom';
-import Search from 'section/header/Search';
-import { toast } from 'react-toastify';
 
- class Products extends Component{
+class Products extends Component{
     
     handleClick = (id)=>{
         this.props.addToCart(id); 
-    }
-
-    state = {
-        cartNum: 0
-    }
-
-    goCart = () => {
-        if (!global.auth.isLogin()) {                        //根據狀態顯示 (登入判斷)
-            this.props.history.push('/login');
-            toast.info('Please Login First');
-            return;
-        }
-        this.props.history.push('/cart');
-    }
-
-
-        // 搜尋邏輯
-    search = text => {
-        let _products = [...this.state.sourceProducts]  // 解構獲取新數組 拿到product
-        _products = _products.filter(p => {
-            const matchArray = p.name.match(new RegExp(text, 'gi'))   // name: Abcd  text: ab ===> ['Ab']
-            return !!matchArray
-        });
-
-        this.setState({
-            products: _products
-        });
-    };
-
-          renderMangerAddBtn = () => {
-        const user = global.auth.getUser() || {}
-        if (user.type === 1) {
-            return (
-                <button className="button is-primary add-btn" onClick={this.toAdd}>＋</button>
-            );
-        }
-    };            
-
+    }    
 
     render(){
         let itemList = this.props.items.map(item=>{
@@ -216,14 +176,15 @@ import { toast } from 'react-toastify';
                 <div className="card" key={item.id}>
                         <div className="card-image">
                             <img src={item.img} alt="pic" />
-                            <span to="/" className="btn-floating halfway-fab waves-effect waves-light red" onClick={()=>{this.handleClick(item.id)}}>
-                                <i className="material-icons">+</i>
+                            <span to="/" className="btn-floating halfway-fab waves-effect waves-light red"
+                                onClick={()=>{this.handleClick(item.id)}}>
+                                <span>+</span>
                             </span>
                         </div>
 
                         <div className="card-content">
                             <p>{item.desc}</p>
-                            <p><b>Price: {item.price}$</b></p>
+                            <p><b>Price {item.price}$</b></p>
                         </div>
                  </div>
 
@@ -235,7 +196,6 @@ import { toast } from 'react-toastify';
                 <div className="box">
                     {itemList}
                 </div>
-                {this.renderMangerAddBtn()}
             </div>
         )
     }

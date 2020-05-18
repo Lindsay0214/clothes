@@ -17,9 +17,11 @@
     padding: 1rem 1.3rem;
 }
 
-.footer-icon a{
+.footer-icon li{
+    float: left;
     font-size: 35px;
     padding: 0 25px;
+    text-decoration: none;
 }
 
 .footer-icon-topic {
