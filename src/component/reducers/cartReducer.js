@@ -10,7 +10,7 @@ import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING } from '
 const initState = {
     items: [
         {id:1, desc: "紫帽踢", price:110,img:Item1},
-        {id:2, desc: "英倫風西裝褲", price:80,img: Item2},
+        {id:2, desc: "英倫風褲", price:80,img: Item2},
         {id:3, desc: "字母帽踢",price:120,img: Item3},
         {id:4, desc: "撞色踢", price:260,img:Item4},
         {id:5, desc: "咖啡吊帶褲", price:160,img: Item5},
