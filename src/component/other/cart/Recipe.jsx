@@ -6,7 +6,7 @@ class Recipe extends Component{
     
     componentWillUnmount() {
          if(this.refs.shipping.checked)
-              this.props.substractShipping()
+              this.props.subtractShipping()
     }
 
     handleChecked = (e)=>{
@@ -14,7 +14,7 @@ class Recipe extends Component{
             this.props.addShipping();
         }
         else{
-            this.props.substractShipping();
+            this.props.subtractShipping();
         }
     }
 
@@ -49,7 +49,7 @@ const mapStateToProps = (state)=>{
 const mapDispatchToProps = (dispatch)=>{
     return{
         addShipping: ()=>{dispatch({type: 'ADD_SHIPPING'})},
-        substractShipping: ()=>{dispatch({type: 'SUB_SHIPPING'})}
+        subtractShipping: ()=>{dispatch({type: 'SUB_SHIPPING'})}
     }
 }
 

@@ -28,22 +28,7 @@
       z-index: 99;
     }
   }
-  
-  // .container-fade-enter {
-  //   opacity: 0.1;
-  // }
-  // .container-fade-enter-active {
-  //   opacity: 1;
-  //   transition: all 0.3s ease-in;
-  // }
-  
-  // .container-fade-exit {
-  //   opacity: 1;
-  // }
-  // .container-fade-exit-active {
-  //   opacity: 0.1;
-  //   transition: all 0.3s ease-in;
-  // }
+
   // -------- product component -------
   
   .card {
@@ -124,10 +109,6 @@
       .price {
         color: #333;
         font-weight: 100;
-        // &::before {
-        //   content: '￥';
-        //   font-size: 12px;
-        // }
       }
       .add-bt {
         outline: none;
