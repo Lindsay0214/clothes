@@ -1,20 +1,20 @@
-import Item1 from '../../assets/images/item_.jpeg'
-import Item2 from '../../assets/images/item_1.jpeg'
-import Item3 from '../../assets/images/item_2.jpeg'
-import Item4 from '../../assets/images/item_3.jpeg'
-import Item5 from '../../assets/images/item_4.jpeg';
-import Item6 from '../../assets/images/item_.jpeg';
-import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING } from '../actions/action-types/cart-actions';
+// import Item1 from '../../assets/images/item_.jpeg'
+// import Item2 from '../../assets/images/item_1.jpeg'
+// import Item3 from '../../assets/images/item_2.jpeg'
+// import Item4 from '../../assets/images/item_3.jpeg'
+// import Item5 from '../../assets/images/item_4.jpeg';
+// import Item6 from '../../assets/images/item_.jpeg';
+import * as types from '../actions/action-types/cart-actions';
 
 
 const initState = {
     items: [
-        {id:1, desc: "紫帽踢", price:110,img:Item1},
-        {id:2, desc: "英倫風褲", price:80,img: Item2},
-        {id:3, desc: "字母帽踢",price:120,img: Item3},
-        {id:4, desc: "撞色踢", price:260,img:Item4},
-        {id:5, desc: "咖啡吊帶褲", price:160,img: Item5},
-        {id:6, desc: "紫帽踢",price:90,img: Item6}
+    //     {id:1, desc: "紫帽踢", price:110,img:Item1},
+    //     {id:2, desc: "英倫風褲", price:80,img: Item2},
+    //     {id:3, desc: "字母帽踢",price:120,img: Item3},
+    //     {id:4, desc: "撞色踢", price:260,img:Item4},
+    //     {id:5, desc: "咖啡吊帶褲", price:160,img: Item5},
+    //     {id:6, desc: "紫帽踢",price:90,img: Item6}
     ],
     addedItems:[],
     total: 0
@@ -23,7 +23,7 @@ const initState = {
 const cartReducer= (state = initState,action)=>{
    
     //INSIDE HOME COMPONENT
-    if(action.type === ADD_TO_CART){
+    if(action.type === types.ADD_TO_CART){
           let addedItem = state.items.find(item=> item.id === action.id)
           //check if the action id exists in the addedItems
          let existed_item= state.addedItems.find(item=> action.id === item.id)
@@ -48,7 +48,7 @@ const cartReducer= (state = initState,action)=>{
             
         }
     }
-    if(action.type === REMOVE_ITEM){
+    if(action.type === types.REMOVE_ITEM){
         let itemToRemove= state.addedItems.find(item=> action.id === item.id)
         let new_items = state.addedItems.filter(item=> action.id !== item.id)
         
@@ -62,7 +62,7 @@ const cartReducer= (state = initState,action)=>{
         }
     }
     //INSIDE CART COMPONENT
-    if(action.type=== ADD_QUANTITY){
+    if(action.type=== types.ADD_QUANTITY){
         let addedItem = state.items.find(item=> item.id === action.id)
           addedItem.quantity += 1 
           let newTotal = state.total + addedItem.price
@@ -71,7 +71,7 @@ const cartReducer= (state = initState,action)=>{
               total: newTotal
           }
     }
-    if(action.type=== SUB_QUANTITY){  
+    if(action.type=== types.SUB_QUANTITY){  
         let addedItem = state.items.find(item=> item.id === action.id) 
         //if the qt == 0 then it should be removed
         if(addedItem.quantity === 1){
@@ -94,7 +94,7 @@ const cartReducer= (state = initState,action)=>{
         
     }
 
-    if(action.type=== ADD_SHIPPING){
+    if(action.type=== types.ADD_SHIPPING){
           return{
               ...state,
               total: state.total + 60
@@ -114,3 +114,5 @@ const cartReducer= (state = initState,action)=>{
 }
 
 export default cartReducer;
+
+

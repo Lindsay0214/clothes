@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addToCart } from '../actions/cartAction';
+import { requestProducts } from '../actions/productsAction';
+
 
 class Products extends Component{
     
@@ -38,16 +40,17 @@ class Products extends Component{
         )
     }
 }
-const mapStateToProps = (state)=>{
-    return {
-      items: state.items
-    }
-  }
+// const mapStateToProps = (state)=>{
+//     return {
+//       items: state.items
+//     }
+//   }
 const mapDispatchToProps= (dispatch)=>{
     
     return{
+        requestProducts: ()=>{dispatch(requestProducts())},
         addToCart: (id)=>{dispatch(addToCart(id))}
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Products);
+export default connect(null,mapDispatchToProps)(Products);

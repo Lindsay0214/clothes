@@ -14,7 +14,7 @@ class CartItem extends Component{
     handleAddQuantity = (id)=>{
         this.props.addQuantity(id);
     }
-    //to substruct from the quantity
+    //to subtract from the quantity
     handleSubtractQuantity = (id)=>{
         this.props.subtractQuantity(id);
     }
