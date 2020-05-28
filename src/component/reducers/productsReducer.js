@@ -11,5 +11,3 @@ export default function products(state = false, action) {
         return state;
     }
   }
-
-

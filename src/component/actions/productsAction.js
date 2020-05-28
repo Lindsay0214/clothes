@@ -20,17 +20,15 @@ export function requestProducts(){
     };
   }
   
-  export function addProducts(products){
+  export function addProducts(){
     return (dispatch) => {
       dispatch(requestProducts());
       return fetch('http://localhost:3005/products', {
         method: 'GET',
-        body: JSON.parse({
-         products
-        })
       })
       .then(response => {
-        dispatch(addProductsSuccess(products));
+        console.log(response)
+        dispatch(addProductsSuccess(response));
       })
       .catch(err => dispatch(addProductsFailure(err)));
     };

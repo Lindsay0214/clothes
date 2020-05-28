@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addToCart } from '../actions/cartAction';
-import { requestProducts } from '../actions/productsAction';
+import { requestProducts, addProducts } from '../actions/productsAction';
 
 
 class Products extends Component{
@@ -10,7 +10,12 @@ class Products extends Component{
         this.props.addToCart(id); 
     }    
 
+    componentDidMount(products){
+        this.props.addProducts(products);
+    }
+
     render(){
+        console.log('items:', this.props.items)
         let itemList = this.props.items.map(item=>{
             return(
                 <div className="card" key={item.id}>
@@ -40,17 +45,20 @@ class Products extends Component{
         )
     }
 }
-// const mapStateToProps = (state)=>{
-//     return {
-//       items: state.items
-//     }
-//   }
+const mapStateToProps = (state)=>{
+    console.log('state', state)
+    return {
+      items: state.cartReducer.items
+    }
+  }
 const mapDispatchToProps= (dispatch)=>{
+    console.log(dispatch)
     
     return{
         requestProducts: ()=>{dispatch(requestProducts())},
-        addToCart: (id)=>{dispatch(addToCart(id))}
+        addToCart: (id)=>{dispatch(addToCart(id))},
+        addProducts: () => {dispatch(addProducts())},
     }
 }
 
-export default connect(null,mapDispatchToProps)(Products);
+export default connect(mapStateToProps,mapDispatchToProps)(Products);
