@@ -18,10 +18,12 @@ import './component/other/Panel/panel.scss';
 import './component/other/Panel/item.css';
 import cartReducer from './component/reducers/cartReducer';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 
-const store = createStore(cartReducer);
+const store = createStore(cartReducer, applyMiddleware(thunk));
+
 
 ReactDOM.render(
     <Provider store={store}>
