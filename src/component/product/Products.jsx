@@ -52,7 +52,7 @@ const mapStateToProps = (state)=>{
     }
   }
 const mapDispatchToProps= (dispatch)=>{
-    console.log(dispatch)
+    console.log(addProducts)
     
     return{
         requestProducts: ()=>{dispatch(requestProducts())},
