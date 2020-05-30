@@ -21,12 +21,14 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-
+const middleware = [ thunk ];
   
 const store = createStore(
   reducer,
-  applyMiddleware(thunk)
-);
+  applyMiddleware(...middleware)
+)
+
+store.dispatch(getAllProducts())
 
 ReactDOM.render(
     <Provider store={store}>

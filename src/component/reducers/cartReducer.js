@@ -4,7 +4,7 @@
 // import Item4 from '../../assets/images/item_3.jpeg'
 // import Item5 from '../../assets/images/item_4.jpeg';
 // import Item6 from '../../assets/images/item_.jpeg';
-import * as types from '../actions/action-types/cart-actions';
+import * as types from '../../actions/action-types/cart-actions';
 
 
 const initState = {

@@ -12,3 +12,10 @@ export const REQUEST_PRODUCTS = 'REQUEST_PRODUCTS'; // 商品列表請求
 export const ADD_SUCCESS_PRODUCTS = 'ADD_SUCCESS_PRODUCTS'; // 請求成功返回
 export const ADD_FAILURE_PRODUCTS = 'ADD_FAILURE_PRODUCTS'; // 請求失敗返回
 
+
+
+//me
+export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS'; 
+
+
+

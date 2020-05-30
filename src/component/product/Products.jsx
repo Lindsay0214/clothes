@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToCart } from '../actions/cartAction';
-import { requestProducts, addProducts } from '../actions/productsAction';
+import { addToCart } from '../../actions/cartAction';
+import { requestProducts, addProducts } from '../../actions/productsAction';
 
 
 class Products extends Component{
@@ -10,13 +10,8 @@ class Products extends Component{
         this.props.addToCart(id); 
     }    
 
-    componentDidMount(products){
-        this.props.addProducts(products);
-    }
-
     render(){
-        console.log('items:', this.props.items)
-        let itemList = this.props.items.map(item=>{
+        let itemList = this.props.products.map(item=>{
             return(
                 <div className="card" key={item.id}>
                         <div className="card-image">
@@ -45,20 +40,9 @@ class Products extends Component{
         )
     }
 }
-const mapStateToProps = (state)=>{
-    console.log('state', state)
-    return {
-      items: state.cartReducer.items
-    }
-  }
-const mapDispatchToProps= (dispatch)=>{
-    console.log(addProducts)
-    
-    return{
-        requestProducts: ()=>{dispatch(requestProducts())},
-        addToCart: (id)=>{dispatch(addToCart(id))},
-        addProducts: () => {dispatch(addProducts())},
-    }
-}
+const mapStateToProps = state => ({
+    products: getVisibleProducts(state.products)
+  })
 
-export default connect(mapStateToProps,mapDispatchToProps)(Products);
+export default connect(
+    mapStateToProps)(Products);
