@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToCart } from '../../actions/cartAction';
-import { requestProducts, addProducts } from '../../actions/productsAction';
+// import { addToCart } from '../../actions/cartAction';
+// import { requestProducts, addProducts } from '../../actions/productsAction';
+import { getVisibleProducts } from '../reducers/productsReducer';
 
 
 class Products extends Component{
@@ -44,5 +45,4 @@ const mapStateToProps = state => ({
     products: getVisibleProducts(state.products)
   })
 
-export default connect(
-    mapStateToProps)(Products);
+export default connect(mapStateToProps)(Products);

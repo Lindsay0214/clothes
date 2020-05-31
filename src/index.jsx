@@ -20,6 +20,7 @@ import reducer from './component/reducers/index';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import { getAllProducts } from './actions/productsAction';
 
 const middleware = [ thunk ];
   

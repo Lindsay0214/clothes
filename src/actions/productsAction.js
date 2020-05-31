@@ -22,22 +22,22 @@ export function requestProducts(){
   
  
 
-  export function addProducts(){
-    return (dispatch) => {
-      dispatch(requestProducts());
-      return fetch('http://localhost:3005/products', {
-        method: 'GET',
-      })
-      .then(response => response.json())
-      .then(response => {
-        dispatch(addProductsSuccess(response));
-        console.log(response)
-      }
-      )
-      .catch(err => dispatch(addProductsFailure(err)));
-    };
+  // export function addProducts(){
+  //   return (dispatch) => {
+  //     dispatch(requestProducts());
+  //     return fetch('http://localhost:3005/products', {
+  //       method: 'GET',
+  //     })
+  //     .then(response => response.json())
+  //     .then(response => {
+  //       dispatch(addProductsSuccess(response));
+  //       console.log(response)
+  //     }
+  //     )
+  //     .catch(err => dispatch(addProductsFailure(err)));
+  //   };
     
-  }
+  // }
 
 //me
   const receiveProducts = products => ({

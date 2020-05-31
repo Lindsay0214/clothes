@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-expressions */
 import * as types from '../../actions/action-types/cart-actions';
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 
 // export default function products(state = false, action) {
 //     switch (action.type) {
@@ -13,11 +14,11 @@ import { combineReducers } from 'redux'
 //     }
 //   }
 
-  const returnProducts = (state = [], action) => {
+const returnProducts = (state = [], action)=>{
     switch (action.type) {
-      case RECEIVE_PRODUCTS:
+      case types.RECEIVE_PRODUCTS:
         console.log(action);
-        return action.products;
+        return action.products
       default:
         return state;
     }
@@ -27,6 +28,6 @@ import { combineReducers } from 'redux'
     returnProducts
   });
 
-  export const getVisibleProducts = state =>
-  state.returnProducts
+  export const getVisibleProducts = (state) => state ? state.returnProducts : [];
+
 
