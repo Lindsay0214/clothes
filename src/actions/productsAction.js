@@ -49,7 +49,7 @@ export function requestProducts(){
       method: 'GET',
     })
     .then(response => response.json())
-    .then(json =>
-      dispatch(receiveProducts(json))
+    .then(products =>
+      dispatch(receiveProducts(products))
     )
   }
