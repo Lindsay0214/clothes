@@ -28,3 +28,10 @@ export const addQuantity=(id)=>{
         id
     }
 }
+
+export const checkoutClicked=(id)=>{
+    return{
+        type: types.CHECK_OUT,
+        id
+    }
+}

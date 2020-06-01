@@ -24,9 +24,10 @@ import { getAllProducts } from './actions/productsAction';
 
 const middleware = [ thunk ];
   
+
 const store = createStore(
   reducer,
-  applyMiddleware(...middleware)
+  applyMiddleware(...middleware),
 )
 
 store.dispatch(getAllProducts())

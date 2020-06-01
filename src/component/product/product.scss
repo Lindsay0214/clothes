@@ -160,3 +160,37 @@
     background: #c09769;
 }
 
+//
+
+.card{
+  width: 150px;
+  height: 240px;
+  .card-image{
+    width: 130px;
+    height: 160px;
+  }
+  .card-content{
+    margin: 10px;
+    padding-top: 8px;
+  }
+}
+
+
+.container .box {
+  background-color: rgba(136, 96, 59, 0);
+  padding-top: 1.2rem;
+  padding-bottom: 8rem;
+  column-width: 200px;
+  grid-column-gap: 4px;
+  column-gap: 4px;
+  margin: 1px;
+}
+
+.box {
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+  color: #4a4a4a;
+  display: block;
+  padding: 1.25rem;
+}

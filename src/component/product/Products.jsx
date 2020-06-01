@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { addToCart } from '../../actions/cartAction';
-// import { requestProducts, addProducts } from '../../actions/productsAction';
-import { getVisibleProducts } from '../reducers/productsReducer';
+import { addToCart } from '../../actions/cartAction';
 
 
 class Products extends Component{
@@ -12,19 +10,23 @@ class Products extends Component{
     }    
 
     render(){
+        // return null;
         let itemList = this.props.products.map(item=>{
             return(
                 <div className="card" key={item.id}>
                         <div className="card-image">
                             <img src={item.img} alt="pic" />
-                            <span to="/" className="btn-floating halfway-fab waves-effect waves-light red"
-                                onClick={()=>{this.handleClick(item.id)}}>
+                            <span 
+                                to="/"
+                                className="btn-floating halfway-fab waves-effect waves-light red"
+                                onClick={()=>{this.handleClick(item.id)}}
+                                >
                                 <span>+</span>
                             </span>
                         </div>
 
                         <div className="card-content">
-                            <p>{item.desc}</p>
+                            <p>{item.name}</p>
                             <p><b>Price {item.price}$</b></p>
                         </div>
                  </div>
@@ -41,8 +43,16 @@ class Products extends Component{
         )
     }
 }
-const mapStateToProps = state => ({
-    products: getVisibleProducts(state.products)
-  })
+const mapStateToProps = state => {
+    console.log("state", state)
+    // console.log('state.productsReducer', state.products);
+    // console.log('getVisibleProducts(state.productsReducer.returnProducts', getVisibleProducts(state.products));
+    return {
+    
+        // products: getVisibleProducts(state.products)
+        // items: state.addedItems,
+        products: state.products,
+      }
+}
 
 export default connect(mapStateToProps)(Products);

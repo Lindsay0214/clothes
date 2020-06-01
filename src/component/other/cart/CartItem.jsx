@@ -18,9 +18,14 @@ class CartItem extends Component{
     handleSubtractQuantity = (id)=>{
         this.props.subtractQuantity(id);
     }
+
+    handleCheckoutClicked = (id) => {
+        this.props.checkoutClicked(id);
+    }
+
     render(){
-              
-        let addedItems = this.props.items.length ?
+        const addedItems = this.props.items.length > 0
+        let nodes = this.props.items.length ?
             (  
                 this.props.items.map(item=>{
                     return(
@@ -32,7 +37,7 @@ class CartItem extends Component{
                                 
                                     <div className="item-desc">
                                         <span className="title">{item.title}</span>
-                                        <p>{item.desc}</p>
+                                        <p>{item.name}</p>
                                         <p><b>Price: {item.price}$</b></p> 
                                         <p>
                                             <b>Quantity: {item.quantity}</b> 
@@ -57,10 +62,14 @@ class CartItem extends Component{
             <div className="container-7">
                 <div className="cart">
                     <ul className="collection">
-                        {addedItems}
+                        {nodes}
                     </ul>
                 </div> 
-                <Recipe />          
+                <Recipe />
+                <button onClick={this.handleCheckoutClicked()}
+                    disabled={addedItems ? '' : 'disabled'}>
+                    Checkout
+                </button>          
             </div>
        )
     }
@@ -81,3 +90,6 @@ const mapDispatchToProps = (dispatch)=>{
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(CartItem)
+
+
+
