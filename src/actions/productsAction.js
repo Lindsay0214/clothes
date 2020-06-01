@@ -44,12 +44,13 @@ export function requestProducts(){
     type: types.RECEIVE_PRODUCTS,
     products
   });
+  
   export const getAllProducts = () => dispatch => {
     return fetch('http://localhost:3005/products', {
       method: 'GET',
     })
     .then(response => response.json())
-    .then(products =>
-      dispatch(receiveProducts(products))
+    .then(json =>
+      dispatch(receiveProducts(json))
     )
   }
