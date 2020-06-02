@@ -12,6 +12,7 @@ class Products extends Component{
     render(){
         // return null;
         let itemList = this.props.products.map(item=>{
+            // console.log(item)
             return(
                 <div className="card" key={item.id}>
                         <div className="card-image">
@@ -43,16 +44,21 @@ class Products extends Component{
         )
     }
 }
+
 const mapStateToProps = state => {
-    console.log("state", state)
-    // console.log('state.productsReducer', state.products);
-    // console.log('getVisibleProducts(state.productsReducer.returnProducts', getVisibleProducts(state.products));
+    // console.log(state)
     return {
-    
-        // products: getVisibleProducts(state.products)
-        // items: state.addedItems,
         products: state.products,
       }
 }
 
-export default connect(mapStateToProps)(Products);
+
+const mapDispatchToProps = (dispatch) => {
+    // console.log()
+    return {
+        addToCart: (id)=>{dispatch(addToCart(id))},
+
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Products);

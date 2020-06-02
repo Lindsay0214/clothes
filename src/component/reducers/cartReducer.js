@@ -1,33 +1,31 @@
 import * as types from '../../actions/action-types/cart-actions';
 
-
 const initState = {
     // items: [],
     addedItems:[],
     products: [],
+    quantity:[],
     total: 0
-
 }
-const cartReducer = (state = initState,action)=>{
-   
+
+const cartReducer = (state = initState, action) => {
+
     //INSIDE HOME COMPONENT
     if(action.type === types.ADD_TO_CART){
-        console.log(types.ADD_TO_CART)
-          let addedItem = state.items.find(item=> item.id === action.id)
+        console.log(state)
+          let addedItem = state.products.map(item=> item.id === action.id)
           //check if the action id exists in the addedItems
-         let existed_item= state.addedItems.find(item=> action.id === item.id)
+         let existed_item= state.products.find(item=> action.id === item.id)
+
          if(existed_item)
          {
             addedItem.quantity += 1 
-            console.log(addedItem)
-
              return{
                 ...state,
                  total: state.total + addedItem.price 
                   }
         }
          else{
-        
             addedItem.quantity = 1;
             //calculating the total
             let newTotal = state.total + addedItem.price 

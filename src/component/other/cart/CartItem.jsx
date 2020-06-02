@@ -19,15 +19,12 @@ class CartItem extends Component{
         this.props.subtractQuantity(id);
     }
 
-    handleCheckoutClicked = (id) => {
-        this.props.checkoutClicked(id);
-    }
-
     render(){
-        const addedItems = this.props.items.length > 0
-        let nodes = this.props.items.length ?
+        
+        let addedItems = this.props.products.length ?
             (  
-                this.props.items.map(item=>{
+                this.props.products.map(item=>{
+                    console.log(item)
                     return(
                        
                         <li className="collection-item avatar" key={item.id}>
@@ -62,14 +59,10 @@ class CartItem extends Component{
             <div className="container-7">
                 <div className="cart">
                     <ul className="collection">
-                        {nodes}
+                        {addedItems}
                     </ul>
                 </div> 
                 <Recipe />
-                <button onClick={this.handleCheckoutClicked()}
-                    disabled={addedItems ? '' : 'disabled'}>
-                    Checkout
-                </button>          
             </div>
        )
     }
@@ -77,8 +70,10 @@ class CartItem extends Component{
 
 
 const mapStateToProps = (state)=>{
+    // console.log(state)
     return{
         items: state.addedItems,
+        products: state.products
         //addedItems: state.addedItems
     }
 }
