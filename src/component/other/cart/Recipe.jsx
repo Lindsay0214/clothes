@@ -19,7 +19,7 @@ class Recipe extends Component{
     }
 
     render(){
-  
+        console.log(this.props.total)
         return(
             <div className="container">
                 <div className="collection">
@@ -40,9 +40,10 @@ class Recipe extends Component{
 }
 
 const mapStateToProps = (state)=>{
+    // console.log(state.cart.total)
     return{
-        addedItems: state.addedItems,
-        total: state.total
+        addedItems: state.cart.addedItems,
+        total: state.cart.total
     }
 }
 

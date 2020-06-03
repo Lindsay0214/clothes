@@ -12,7 +12,7 @@ const cartReducer = (state = initState, action) => {
 
     //INSIDE HOME COMPONENT
     if(action.type === types.ADD_TO_CART){
-        console.log(state)
+        console.log() 
           let addedItem = state.products.map(item=> item.id === action.id)
           //check if the action id exists in the addedItems
          let existed_item= state.products.find(item=> action.id === item.id)

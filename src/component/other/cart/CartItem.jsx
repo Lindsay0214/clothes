@@ -8,6 +8,7 @@ class CartItem extends Component{
 
     //to remove the item completely
     handleRemove = (id)=>{
+        // console.log(this.props)
         this.props.removeItem(id);
     }
     //to add the quantity
@@ -20,10 +21,10 @@ class CartItem extends Component{
     }
 
     render(){
-        
-        let addedItems = this.props.products.length ?
+        console.log(this.props.items.length)
+        let addedItems = this.props.items.length ?
             (  
-                this.props.products.map(item=>{
+                this.props.items.map(item=>{
                     console.log(item)
                     return(
                        
@@ -33,14 +34,12 @@ class CartItem extends Component{
                                     </div>
                                 
                                     <div className="item-desc">
-                                        <span className="title">{item.title}</span>
-                                        <p>{item.name}</p>
+                                        <p className="title"><b>{item.name}</b></p>
                                         <p><b>Price: {item.price}$</b></p> 
-                                        <p>
-                                            <b>Quantity: {item.quantity}</b> 
-                                        </p>
+                                        
                                         <div className="add-remove">
                                             <Link to="/cart"><i className="fas fa-sort-up" onClick={()=>{this.handleAddQuantity(item.id)}}></i></Link>
+                                            <b>{item.quantity}</b> 
                                             <Link to="/cart"><i className="fas fa-sort-down" onClick={()=>{this.handleSubtractQuantity(item.id)}}></i></Link>
                                         </div>
                                         <button className="waves-effect waves-light btn pink remove" onClick={()=>{this.handleRemove(item.id)}}>Remove</button>
@@ -70,10 +69,10 @@ class CartItem extends Component{
 
 
 const mapStateToProps = (state)=>{
-    // console.log(state)
+    // console.log(state.cart)
     return{
-        items: state.addedItems,
-        products: state.products
+        items: state.cart.addedItems,
+        // products: state.products
         //addedItems: state.addedItems
     }
 }
