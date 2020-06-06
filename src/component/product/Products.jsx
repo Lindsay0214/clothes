@@ -6,14 +6,12 @@ import { addToCart } from '../../actions/cartAction';
 class Products extends Component{
     
     handleClick = (id) => {
-        // console.log()
         this.props.addToCart(id); 
     }    
 
     render(){
-        // console.log(this.props)
+        console.log(this.props)
         let itemList = this.props.products.map(item=>{
-            // console.log(item.id)
             return(
                 <div className="card" key={item.id}>
                         <div className="card-image">
@@ -47,7 +45,7 @@ class Products extends Component{
 }
 
 const mapStateToProps = state => {
-    // console.log(state)
+    // console.log(state.products)
     return {
         products: state.products,
       }

@@ -18,16 +18,18 @@ import './component/other/Panel/panel.scss';
 import './component/other/Panel/item.css';
 import reducer from './component/reducers/index';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { getAllProducts } from './actions/productsAction';
 
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const middleware = [ thunk ];
-  
 
 const store = createStore(
   reducer,
-  applyMiddleware(...middleware),
+  composeEnhancers(applyMiddleware(...middleware))
 )
 
 store.dispatch(getAllProducts())
