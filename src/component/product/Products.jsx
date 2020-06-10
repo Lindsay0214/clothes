@@ -5,21 +5,21 @@ import { addToCartAsync } from '../../actions/cartAction';
 
 class Products extends Component{
     
-    handleClick = (id) => {
-        this.props.addToCartAsync(id); 
+    handleClick = (item) => {
+        this.props.addToCartAsync(item); 
     }    
 
     render(){
         // console.log(this.props)
         let itemList = this.props.products.map(item=>{
             return(
-                <div className="card" key={item.id}>
+                <div className="card" key={item}>
                         <div className="card-image">
-                            <img src={item.img} alt="pic" />
+                            <img src={item} alt="pic" />
                             <span 
                                 to="/"
                                 className="btn-floating halfway-fab waves-effect waves-light red"
-                                onClick={()=>{this.handleClick(item.id)}}
+                                onClick={()=>{this.handleClick(item)}}
                                 >
                                 <span>+</span>
                             </span>
@@ -54,7 +54,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addToCartAsync: (id)=>{dispatch(addToCartAsync(id))},
+        addToCartAsync: (item)=>{dispatch(addToCartAsync(item))},
     }
 }
 

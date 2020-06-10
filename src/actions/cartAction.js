@@ -3,24 +3,24 @@ import * as types from './action-types/cart-actions';
 
 
 //remove item action
-export const removeItem=(id)=>{
+export const removeItem=(item)=>{
     return{
         type: types.REMOVE_ITEM,
-        id
+        item
     }
 }
 //subtract qt action
-export const subtractQuantity=(id)=>{
+export const subtractQuantity=(item)=>{
     return{
         type: types.SUB_QUANTITY,
-        id
+        item
     }
 }
 //add qt action
-export const addQuantity=(id)=>{
+export const addQuantity=(item)=>{
     return{
         type: types.ADD_QUANTITY,
-        id
+        item
     }
 }
 

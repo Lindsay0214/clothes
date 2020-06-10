@@ -25,24 +25,24 @@ class CartItem extends Component{
         let addedItems = this.props.items.length ?
             (  
                 this.props.items.map(item=>{
-                    // console.log(item)
+                    console.log(item)
                     return(
                        
-                        <li className="collection-item avatar" key={item.id}>
+                        <li className="collection-item avatar" key={item}>
                                     <div className="item-img"> 
-                                        <img src={item.img} alt={item.img} className="s"/>
+                                        <img src={item} alt={item} className="s"/>
                                     </div>
                                 
                                     <div className="item-desc">
-                                        <p className="title"><b>{item.name}</b></p>
-                                        <p><b>Price: {item.price}$</b></p> 
+                                        <p className="title"><b>{item}</b></p>
+                                        <p><b>Price: {item}$</b></p> 
                                         
                                         <div className="add-remove">
-                                            <Link to="/cart"><i className="fas fa-sort-up" onClick={()=>{this.handleAddQuantity(item.id)}}></i></Link>
-                                            <b>{item.quantity}</b> 
-                                            <Link to="/cart"><i className="fas fa-sort-down" onClick={()=>{this.handleSubtractQuantity(item.id)}}></i></Link>
+                                            <Link to="/cart"><i className="fas fa-sort-up" onClick={()=>{this.handleAddQuantity(item)}}></i></Link>
+                                            <b>{item}</b> 
+                                            <Link to="/cart"><i className="fas fa-sort-down" onClick={()=>{this.handleSubtractQuantity(item)}}></i></Link>
                                         </div>
-                                        <button className="waves-effect waves-light btn pink remove" onClick={()=>{this.handleRemove(item.id)}}>Remove</button>
+                                        <button className="waves-effect waves-light btn pink remove" onClick={()=>{this.handleRemove(item)}}>Remove</button>
                                     </div>
                                     
                                 </li>
@@ -77,9 +77,9 @@ const mapStateToProps = (state)=>{
 }
 const mapDispatchToProps = (dispatch)=>{
     return{
-        removeItem: (id)=>{dispatch(removeItem(id))},
-        addQuantity: (id)=>{dispatch(addQuantity(id))},
-        subtractQuantity: (id)=>{dispatch(subtractQuantity(id))}
+        removeItem: (item)=>{dispatch(removeItem(item))},
+        addQuantity: (item)=>{dispatch(addQuantity(item))},
+        subtractQuantity: (item)=>{dispatch(subtractQuantity(item))}
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(CartItem)
