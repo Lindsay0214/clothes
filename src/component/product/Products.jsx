@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToCart } from '../../actions/cartAction';
+import { addToCartAsync } from '../../actions/cartAction';
 
 
 class Products extends Component{
     
     handleClick = (id) => {
-        this.props.addToCart(id); 
+        this.props.addToCartAsync(id); 
     }    
 
     render(){
-        console.log(this.props)
+        // console.log(this.props)
         let itemList = this.props.products.map(item=>{
             return(
                 <div className="card" key={item.id}>
@@ -54,7 +54,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addToCart: (id)=>{dispatch(addToCart(id))},
+        addToCartAsync: (id)=>{dispatch(addToCartAsync(id))},
     }
 }
 

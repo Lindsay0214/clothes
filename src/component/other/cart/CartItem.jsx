@@ -7,25 +7,25 @@ import Recipe from './Recipe';
 class CartItem extends Component{
 
     //to remove the item completely
-    handleRemove = (id)=>{
+    handleRemove = (item)=>{
         // console.log(this.props)
-        this.props.removeItem(id);
+        this.props.removeItem(item);
     }
     //to add the quantity
-    handleAddQuantity = (id)=>{
-        this.props.addQuantity(id);
+    handleAddQuantity = (item)=>{
+        this.props.addQuantity(item);
     }
     //to subtract from the quantity
-    handleSubtractQuantity = (id)=>{
-        this.props.subtractQuantity(id);
+    handleSubtractQuantity = (item)=>{
+        this.props.subtractQuantity(item);
     }
 
     render(){
-        console.log(this.props.items.length)
+        // console.log(this.props)
         let addedItems = this.props.items.length ?
             (  
                 this.props.items.map(item=>{
-                    console.log(item)
+                    // console.log(item)
                     return(
                        
                         <li className="collection-item avatar" key={item.id}>
@@ -69,11 +69,10 @@ class CartItem extends Component{
 
 
 const mapStateToProps = (state)=>{
-    // console.log(state.cart)
+    console.log(state)
     return{
         items: state.cart.addedItems,
         // products: state.products
-        //addedItems: state.addedItems
     }
 }
 const mapDispatchToProps = (dispatch)=>{

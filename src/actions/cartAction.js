@@ -1,12 +1,7 @@
 import * as types from './action-types/cart-actions';
+// import { bindActionCreators } from 'redux';
 
-//add cart action
-export const addToCart= (id)=>{
-    return{
-        type: types.ADD_TO_CART,
-        id
-    }
-}
+
 //remove item action
 export const removeItem=(id)=>{
     return{
@@ -29,9 +24,39 @@ export const addQuantity=(id)=>{
     }
 }
 
-export const checkoutClicked=(id)=>{
-    return{
-        type: types.CHECK_OUT,
-        id
-    }
+
+const receiveProducts = products => ({
+    type: types.RECEIVE_PRODUCTS,
+    products
+});
+
+export const getAllProducts = () => dispatch => {
+  return fetch('http://localhost:3005/products', {
+    method: 'GET',
+  })
+  .then(response => response.json())
+  .then(json =>
+    dispatch(receiveProducts(json))
+  )
 }
+
+
+const addToCart = item => ({
+  type: types.ADD_TO_CART,
+  item
+})
+
+// export const addToCartAsync = id => (dispatch, getState) => {
+//   getState().products.map(item=> item.id)
+//   dispatch(addToCart(id))
+// }
+
+export const addToCartAsync = id => (dispatch, getState) => {
+    console.log(getState().products)
+    const item = getState().products.find(item=> item.id === id)
+    // const item = items ? items[0] : [];
+    console.log("item", item)
+    dispatch(addToCart(item))
+  
+}
+ 

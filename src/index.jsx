@@ -20,7 +20,7 @@ import reducer from './component/reducers/index';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { getAllProducts } from './actions/productsAction';
+import { getAllProducts } from './actions/cartAction';
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

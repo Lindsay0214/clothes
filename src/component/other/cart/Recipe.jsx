@@ -19,7 +19,7 @@ class Recipe extends Component{
     }
 
     render(){
-        console.log(this.props.total)
+        // console.log(this.props.total)
         return(
             <div className="container">
                 <div className="collection">
